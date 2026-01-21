@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard lô hàng nội địa</title>
+<title>Dashboard lô hàng</title>
 
 <style>
 body {
@@ -101,34 +101,107 @@ th, td {
 
     <div class="cards">
         <div class="card">
-            <h4>Đơn hôm nay</h4>
-            <p><b>12</b> đơn đã tạo</p>
+            <h4>Lô hàng hôm nay</h4>
+            <p><b>3</b> lô đã ghi nhận</p>
         </div>
         <div class="card">
             <h4>Đang vận chuyển</h4>
-            <p><b>5</b> đơn</p>
+            <p><b>2</b> lô</p>
         </div>
         <div class="card">
-            <h4>Đã giao</h4>
-            <p><b>7</b> đơn</p>
+            <h4>Hoàn tất</h4>
+            <p><b>1</b> lô</p>
         </div>
     </div>
 
-    <h4>Đơn hàng mới nhất</h4>
+   <h4>Lô hàng mới nhất</h4>
+<table>
+    <tr>
+        <th>Mã lô</th>
+        <th>Tuyến</th>
+        <th>Loại hàng</th>
+        <th>Giá trị</th>
+        <th>Trạng thái</th>
+    </tr>
+    <tr>
+        <td>LH202601</td>
+        <td>TP.HCM – Đà Nẵng</td>
+        <td>Quần Jean (Size L)</td>
+        <td>230,000 đ</td>
+        <td class="status processing">Đang vận chuyển</td>
+    </tr>
+</table>
+</div>
+
+<!-- LÔ HÀNG -->
+<div id="shipment" class="section">
+    <h3>Chi tiết lô hàng</h3>
+
+    <p><b>Mã lô:</b> LH202601</p>
+    <p><b>Loại hàng:</b> Quần Jean nam, size L</p>
+    <p><b>Số lượng:</b> 1 chiếc</p>
+    <p><b>Khối lượng:</b> 600 g</p>
+    <p><b>Giá trị đơn hàng:</b> 230,000 VNĐ</p>
+    <p><b>Đóng gói:</b> Túi PE + thùng carton</p>
+    <p><b>Hình thức vận chuyển:</b> Đường bộ nội địa</p>
+    <p><b>Tuyến vận chuyển:</b> TP. Hồ Chí Minh → Đà Nẵng</p>
+    <p><b>Thời gian dự kiến:</b> 2 – 3 ngày</p>
+
+    <h4>Tiến trình vận chuyển</h4>
+    <ul class="timeline">
+        <li>✔ Nhận hàng tại kho TP. Hồ Chí Minh</li>
+        <li>✔ Phân loại tại trung tâm khai thác</li>
+        <li>⏳ Đang vận chuyển ra Đà Nẵng</li>
+        <li>⬜ Giao hàng cho người nhận</li>
+    </ul>
+</div>
+
+<!-- COD -->
+<div id="cod" class="section">
+    <h3>Đối soát COD</h3>
+
     <table>
         <tr>
             <th>Mã đơn</th>
-            <th>Tuyến</th>
-            <th>Loại hàng</th>
-            <th>Giá trị</th>
+            <th>COD</th>
+            <th>Đã thu</th>
             <th>Trạng thái</th>
         </tr>
         <tr>
-            <td>DH-HCM-DN-001</td>
-            <td>TP.HCM → Đà Nẵng</td>
-            <td>Quần áo</td>
-            <td>230,000 đ</td>
-            <td class="status processing">Đang giao</td>
+            <td>DH001</td>
+            <td>500,000</td>
+            <td>500,000</td>
+            <td class="success">Đã đối soát</td>
+        </tr>
+        <tr>
+            <td>DH002</td>
+            <td>300,000</td>
+            <td>0</td>
+            <td class="pending">Chưa đối soát</td>
         </tr>
     </table>
-</d
+</div>
+
+<!-- TÀI KHOẢN -->
+<div id="account" class="section">
+    <h3>Thông tin tài khoản</h3>
+    <p><b>Tên:</b> Người dùng demo</p>
+    <p><b>Vai trò:</b> Khách hàng</p>
+    <p><b>Email:</b> demo@email.com</p>
+</div>
+
+</div>
+</div>
+
+<script>
+function showPage(page) {
+    document.querySelectorAll('.section').forEach(p => p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+}
+function logout() {
+    alert("Đã đăng xuất!");
+}
+</script>
+
+</body>
+</html>
