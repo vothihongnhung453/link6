@@ -93,19 +93,42 @@ th, td {
 <div id="home" class="section active">
 <h3>Trang chủ</h3>
 
-<div class="cards">
-    <div class="card">
-        <h4>Lô hàng hôm nay</h4>
-        <p><b>1</b> lô</p>
-    </div>
-    <div class="card">
-        <h4>Đang vận chuyển</h4>
-        <p><b>1</b> lô</p>
-    </div>
-    <div class="card">
-        <h4>Hoàn tất</h4>
-        <p><b>0</b> lô</p>
-    </div>
+<div id="cod" class="section">
+<h3>Đối soát COD</h3>
+
+<table>
+<tr>
+    <th>Mã lô</th>
+    <th>COD</th>
+    <th>Đã thu</th>
+    <th>Trạng thái</th>
+</tr>
+
+<!-- ĐƠN 1: ĐÃ ĐỐI SOÁT -->
+<tr>
+    <td>LH202601</td>
+    <td>230,000</td>
+    <td>230,000</td>
+    <td class="success">Đã đối soát</td>
+</tr>
+
+<!-- ĐƠN 2: CHỜ ĐỐI SOÁT -->
+<tr>
+    <td>LH202602</td>
+    <td>450,000</td>
+    <td>0</td>
+    <td class="pending">Chờ đối soát</td>
+</tr>
+
+<!-- ĐƠN 3: THẤT BẠI / HOÀN -->
+<tr>
+    <td>LH202603</td>
+    <td>320,000</td>
+    <td>0</td>
+    <td class="processing">Thất bại / Hoàn COD</td>
+</tr>
+
+</table>
 </div>
 
 <table>
