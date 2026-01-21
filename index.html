@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard lô hàng</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 230px;
+    background: #1f3c88;
+    color: white;
+    min-height: 100vh;
+}
+.sidebar h2 {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.sidebar a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.sidebar a:hover {
+    background: #162b63;
+}
+.content {
+    flex: 1;
+    padding: 25px;
+}
+.section {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+}
+.active {
+    display: block;
+}
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.card {
+    background: #eef2ff;
+    padding: 15px;
+    border-radius: 6px;
+    flex: 1;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.status {
+    font-weight: bold;
+}
+.success { color: green; }
+.processing { color: orange; }
+.pending { color: red; }
+.timeline li {
+    margin-bottom: 8px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- MENU -->
+<div class="sidebar">
+    <h2>LOGISTICS</h2>
+    <a onclick="showPage('home')">🏠 Trang chủ</a>
+    <a onclick="showPage('shipment')">📦 Lô hàng</a>
+    <a onclick="showPage('cod')">💰 Đối soát COD</a>
+    <a onclick="showPage('account')">👤 Tài khoản</a>
+    <a onclick="logout()">🚪 Đăng xuất</a>
+</div>
+
+<!-- NỘI DUNG -->
+<div class="content">
+
+<!-- TRANG CHỦ -->
+<div id="home" class="section active">
+    <h3>Trang chủ</h3>
+
+    <div class="cards">
+        <div class="card">
+            <h4>Lô hàng hôm nay</h4>
+            <p><b>3</b> lô đã ghi nhận</p>
+        </div>
+        <div class="card">
+            <h4>Đang vận chuyển</h4>
+            <p><b>2</b> lô</p>
+        </div>
+        <div class="card">
+            <h4>Hoàn tất</h4>
+            <p><b>1</b> lô</p>
+        </div>
+    </div>
+
+    <h4>Lô hàng mới nhất</h4>
+    <table>
+        <tr>
+            <th>Mã lô</th>
+            <th>Tuyến</th>
+            <th>Loại hàng</th>
+            <th>Trạng thái</th>
+        </tr>
+        <tr>
+            <td>LH202601</td>
+            <td>HAN – NRT</td>
+            <td>Vaccine</td>
+            <td class="status processing">Đang xử lý</td>
+        </tr>
+    </table>
+</div>
+
+<!-- LÔ HÀNG -->
+<div id="shipment" class="section">
+    <h3>Chi tiết lô hàng</h3>
+
+    <p><b>Mã lô:</b> LH202601</p>
+    <p><b>Khối lượng:</b> 800 kg</p>
+    <p><b>Container:</b> RKN Envirotainer</p>
+    <p><b>Nhiệt độ:</b> -70°C</p>
+
+    <h4>Tiến trình vận chuyển</h4>
+    <ul class="timeline">
+        <li>✔ Ghi nhận lô hàng tại HAN</li>
+        <li>✔ Xuất kho</li>
+        <li>⏳ Trung chuyển ICN</li>
+        <li>⬜ Đến NRT</li>
+    </ul>
+</div>
+
+<!-- COD -->
+<div id="cod" class="section">
+    <h3>Đối soát COD</h3>
+
+    <table>
+        <tr>
+            <th>Mã đơn</th>
+            <th>COD</th>
+            <th>Đã thu</th>
+            <th>Trạng thái</th>
+        </tr>
+        <tr>
+            <td>DH001</td>
+            <td>500,000</td>
+            <td>500,000</td>
+            <td class="success">Đã đối soát</td>
+        </tr>
+        <tr>
+            <td>DH002</td>
+            <td>300,000</td>
+            <td>0</td>
+            <td class="pending">Chưa đối soát</td>
+        </tr>
+    </table>
+</div>
+
+<!-- TÀI KHOẢN -->
+<div id="account" class="section">
+    <h3>Thông tin tài khoản</h3>
+    <p><b>Tên:</b> Người dùng demo</p>
+    <p><b>Vai trò:</b> Khách hàng</p>
+    <p><b>Email:</b> demo@email.com</p>
+</div>
+
+</div>
+</div>
+
+<script>
+function showPage(page) {
+    document.querySelectorAll('.section').forEach(p => p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+}
+function logout() {
+    alert("Đã đăng xuất!");
+}
+</script>
+
+</body>
+</html>
